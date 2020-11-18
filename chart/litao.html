@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<head>
+  <style>
+
+    body {
+      font: 12px Helvetica;
+    }
+
+    .axis line {
+      fill: none;
+      stroke: #000;
+      shape-rendering: crispEdges;
+    }
+
+    .x.axis path {
+      display: none;
+    }
+
+    .line {
+      fill: none;
+      stroke: steelblue;
+      stroke-width: 2px;
+    }
+
+    div.tooltip { 
+        position: absolute;     
+        text-align: center;     
+		width: 100px;         
+        height: 30px;         
+        padding: 2px;       
+        font: 12px sans-serif;    
+        background: lightsteelblue; 
+        border: 0px;    
+        border-radius: 8px;     
+        pointer-events: none;     
+    }
+
+  </style>
+  <script src="https://d3js.org/d3.v3.js"></script>
+  <script src="./genFrequencyChart.js"></script>
+  <script src="./bubbleCharts.js"></script>
+</head>
+<body>
+	<div style="width: 650px; height: 1000px; border: 1px solid black; text-align: center;">
+		<div style="width: 630px; height: 30px">
+			<form id="dimensions">
+				<input type="radio" name="states" id="Earthquake" value="Earthquake"><label>Earthquake</label>
+				<input type="radio" name="states" id="Tsunami" value="Tsunami"><label>Tsunami</label>
+				<input type="radio" name="states" id="Volcano" value="Volcano"><label>Volcano</label>
+			</form>
+		</div>
+		<div id='charts_div' style="width: 630px; height: 410px">
+			<script>				
+				drawRain();
+			</script>
+		</div>
+		
+		<div style="width: 630px; height: 30px">
+			<form id="second_charts">
+				<input type="radio" name="states" id="Death" value="Death"><label>Magnitude vs. Death and Missing</label>
+				<input type="radio" name="states" id="Damages" value="Damages"><label>Magnitude vs. Damages</label>
+			</form>			
+		</div>
+			<script>
+				drawBubbles();
+			</script>
+		<div id='charts_second_div' style="width: 630px; height: 530px">
+			<svg id="chart_mag"></svg>
+		</div>
+	</div>
+	
+</body>
